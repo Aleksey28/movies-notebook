@@ -2,9 +2,9 @@
   "name": "graphql-tutorial",
   "version": "1.0.0",
   "description": "learning graphql",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "../node_modules/.bin/nodemon server/server/app.js"
+    "dev": "nodemon server/app.js"
   },
   "author": "Aleksey Popov",
   "license": "ISC",
