@@ -4,7 +4,7 @@
   "description": "learning graphql",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server/app.js"
+    "dev": "../node_modules/.bin/nodemon server/server/app.js"
   },
   "author": "Aleksey Popov",
   "license": "ISC",
