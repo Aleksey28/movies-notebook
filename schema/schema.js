@@ -28,7 +28,7 @@ const DirectorsType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    genre: { type: GraphQLString },
+    age: { type: GraphQLInt },
   }),
 });
 
@@ -40,6 +40,13 @@ const Query = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return movies.find(movie => movie.id == args.id);
+      },
+    },
+    director: {
+      type: DirectorsType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return directors.find(director => director.id == args.id);
       },
     },
   },
