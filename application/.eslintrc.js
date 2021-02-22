@@ -26,5 +26,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'react/no-unescaped-entities': 'off',
+    'no-debugger': 'off',
   },
 };
