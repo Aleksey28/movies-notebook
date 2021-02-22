@@ -23,7 +23,7 @@ const Movies = ({ classes }) => {
     setOpen(true);
     setStateData({
       ...data,
-      directorId: data.director ? data.director.id : '',
+      directorId: data && data.director ? data.director.id : '',
     });
   };
 
