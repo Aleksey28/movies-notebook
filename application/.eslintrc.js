@@ -24,5 +24,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
+    'react/no-unescaped-entities': 'off',
   },
 };
