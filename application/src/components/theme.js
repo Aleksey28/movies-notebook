@@ -1,0 +1,21 @@
+import { createMuiTheme } from '@material-ui/core';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+
+export default createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    color: '#fff',
+  },
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#e535ab',
+    },
+    secondary: blue,
+    error: red,
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+    contrastText: '#fff',
+  },
+});
