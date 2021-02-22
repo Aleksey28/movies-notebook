@@ -40,7 +40,7 @@ const DirectorsTable = ({ onOpen, classes }) => {
 
   const handleClose = () => { setAnchorEl(null); };
 
-  const handleEdit = (row) => {
+  const handleEdit = () => {
     onOpen(stateData);
     handleClose();
   };

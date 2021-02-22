@@ -13,7 +13,6 @@ const DirectorsForm = ({
   const handleClose = () => { onClose(); };
 
   const handleSave = () => {
-    const { id, name, age } = selectedValue;
     onClose();
   };
 

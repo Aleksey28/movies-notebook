@@ -32,9 +32,6 @@ const MoviesForm = ({
   const handleClose = () => { onClose(); };
 
   const handleSave = () => {
-    const {
-      id, name, genre, rate, directorId, watched,
-    } = selectedValue;
     onClose();
   };
 

@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import BlockIcon from '@material-ui/icons/Block';
 
-const DirectorsDialog = ({ id, handleClose, open }) => {
+const DirectorsDialog = ({ handleClose, open }) => {
   const handleDelete = () => {
     handleClose();
   };
