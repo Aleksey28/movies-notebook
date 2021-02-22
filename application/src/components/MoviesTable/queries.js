@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 const moviesQuery = gql`
   query moviesQuery {
-    movie {
+    movies {
       id
       name
       genre

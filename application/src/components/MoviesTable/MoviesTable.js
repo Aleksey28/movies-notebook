@@ -26,7 +26,7 @@ const movies = [
   },
 ];
 
-const MoviesTable = ({ onOpen, classes }) => {
+const MoviesTable = ({ onOpen, classes, data }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [stateData, setStateData] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
@@ -34,9 +34,9 @@ const MoviesTable = ({ onOpen, classes }) => {
   const handleDialogClose = () => { setOpenDialog(false); };
   const handleDialogOpen = () => { setOpenDialog(true); };
 
-  const handleClick = ({ currentTarget }, data) => {
+  const handleClick = ({ currentTarget }, newData) => {
     setAnchorEl(currentTarget);
-    setStateData(data);
+    setStateData(newData);
   };
 
   const handleClose = () => { setAnchorEl(null); };
@@ -51,6 +51,7 @@ const MoviesTable = ({ onOpen, classes }) => {
     handleClose();
   };
 
+  console.log(data);
   return (
     <>
       <MoviesDialog open={openDialog} handleClose={handleDialogClose} id={stateData.id} />
