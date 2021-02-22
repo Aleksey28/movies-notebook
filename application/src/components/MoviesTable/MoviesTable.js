@@ -17,15 +17,6 @@ import MoviesDialog from '../MoviesDialog/MoviesDialog';
 
 import withHocs from './MoviesTableHoc';
 
-const movies = [
-  {
-    id: 1, name: 'Pulp Fiction', genre: 'Crime', rate: 10, director: { name: 'Quentin Tarantino' }, watched: true,
-  },
-  {
-    id: 2, name: 'Lock, Stock and Two Smoking Barrels', genre: 'Crime-comedy', rate: 9, director: { name: 'Guy Ritchie' }, watched: false,
-  },
-];
-
 const MoviesTable = ({ onOpen, classes, data }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [stateData, setStateData] = useState({});
@@ -51,7 +42,8 @@ const MoviesTable = ({ onOpen, classes, data }) => {
     handleClose();
   };
 
-  console.log(data);
+  const { movies = [] } = data;
+
   return (
     <>
       <MoviesDialog open={openDialog} handleClose={handleDialogClose} id={stateData.id} />
@@ -73,7 +65,7 @@ const MoviesTable = ({ onOpen, classes, data }) => {
                 <TableCell component="th" scope="row">{movie.name}</TableCell>
                 <TableCell>{movie.genre}</TableCell>
                 <TableCell align="right">{movie.rate}</TableCell>
-                <TableCell>{movie.director.name}</TableCell>
+                <TableCell>{movie.director ? movie.director.name : ''}</TableCell>
                 <TableCell>
                   <Checkbox checked={movie.watched} disabled />
                 </TableCell>
