@@ -15,6 +15,7 @@ module.exports = {
         allow: ['_id', '__dirname'],
       },
     ],
+    'no-use-before-define': 'off',
     'no-console': 'off',
   },
 };

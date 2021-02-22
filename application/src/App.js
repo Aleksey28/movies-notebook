@@ -1,13 +1,27 @@
-import "./App.css";
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
-import theme from "./components/theme";
-import React from "react";
+import React from 'react';
+import './App.css';
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
-
-    </MuiThemeProvider>
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
