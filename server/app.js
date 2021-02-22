@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 mongoose.connect(
   'mongodb+srv://Aleksey:12345qwert@graphql-tutorial.ccvvp.mongodb.net/graphql-tutorial?retryWrites=true&w=majority',
