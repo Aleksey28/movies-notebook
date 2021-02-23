@@ -14,30 +14,30 @@ import SaveIcon from '@material-ui/icons/Save';
 
 import withHocs from './MoviesFormHoc';
 
-const directors = [
-  {
-    id: 1, name: 'Quentin Tarantino', age: 55, movies: [{ name: 'Movie 1' }, { name: 'Movie 2' }],
-  },
-  {
-    id: 2, name: 'Guy Ritchie', age: 50, movies: [{ name: 'Movie 1' }, { name: 'Movie 2' }],
-  },
-];
-
 const MoviesForm = ({
   classes, open, handleChange,
   handleSelectChange, handleCheckboxChange, onClose, selectedValue = {},
+  addMovie, data = {},
 }) => {
   const refInputLabel = useRef(null);
 
   const handleClose = () => { onClose(); };
 
   const handleSave = () => {
+    const {
+      name, genre, rate, directorId, watched,
+    } = selectedValue;
+
+    addMovie({
+      name, genre, rate: Number(rate), directorId, watched: Boolean(watched),
+    });
     onClose();
   };
 
   const {
     name, genre, rate, directorId, watched,
   } = selectedValue;
+  const { directors = [] } = data;
   return (
     <Dialog onClose={handleClose} open={open} aria-labelledby="simple-dialog-title">
       <DialogTitle className={classes.title} id="simple-dialog-title">Movie information</DialogTitle>
