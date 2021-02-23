@@ -4,12 +4,20 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import withHocs from './DirectorsSearchHoc';
 
-const DirectorsSearch = ({ classes }) => (
+const DirectorsSearch = ({
+  classes,
+  searchText,
+  handleChangeSearchText,
+  handleSearch,
+}) => (
   <div className={classes.search}>
     <div className={classes.searchIcon}>
       <SearchIcon />
     </div>
     <InputBase
+      onChange={handleChangeSearchText}
+      onKeyPress={handleSearch}
+      value={searchText}
       placeholder="Search…"
       classes={{
         root: classes.inputRoot,

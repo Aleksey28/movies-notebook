@@ -16,11 +16,26 @@ import CreateIcon from '@material-ui/icons/Create';
 import MoviesDialog from '../MoviesDialog/MoviesDialog';
 
 import withHocs from './MoviesTableHoc';
+import MoviesSearch from '../MoviesSearch/MoviesSearch';
 
 const MoviesTable = ({ onOpen, classes, data }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [stateData, setStateData] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
+  const [searchText, setSearchText] = useState('');
+
+  const handleChangeSearchText = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      data.fetchMore({
+        variables: { name: searchText },
+        updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+      });
+    }
+  };
 
   const handleDialogClose = () => { setOpenDialog(false); };
   const handleDialogOpen = () => { setOpenDialog(true); };
@@ -46,6 +61,13 @@ const MoviesTable = ({ onOpen, classes, data }) => {
 
   return (
     <>
+      <Paper>
+        <MoviesSearch
+          searchText={searchText}
+          handleChangeSearchText={handleChangeSearchText}
+          handleSearch={handleSearch}
+        />
+      </Paper>
       <MoviesDialog open={openDialog} handleClose={handleDialogClose} id={stateData.id} />
       <Paper className={classes.root}>
         <Table>

@@ -1,5 +1,5 @@
 {
-  "name": "graphql-tutorial",
+  "name": "api.movies-notebook",
   "version": "1.0.0",
   "description": "learning graphql",
   "main": "app.js",
