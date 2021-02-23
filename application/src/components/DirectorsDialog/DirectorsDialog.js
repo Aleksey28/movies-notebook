@@ -8,8 +8,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import BlockIcon from '@material-ui/icons/Block';
 
-const DirectorsDialog = ({ handleClose, open }) => {
+import withHocs from './DirectorsDialogHoc';
+
+const DirectorsDialog = ({
+  id, handleClose, deleteDirector, open,
+}) => {
   const handleDelete = () => {
+    deleteDirector(id);
     handleClose();
   };
 
@@ -42,4 +47,4 @@ const DirectorsDialog = ({ handleClose, open }) => {
   );
 };
 
-export default DirectorsDialog;
+export default withHocs(DirectorsDialog);

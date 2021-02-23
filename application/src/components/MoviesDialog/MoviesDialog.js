@@ -8,8 +8,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import BlockIcon from '@material-ui/icons/Block';
 
-const MoviesDialog = ({ handleClose, open }) => {
+import withHocs from './MoviesDialogHoc';
+
+const MoviesDialog = ({
+  id, handleClose, open, deleteMovie,
+}) => {
   const handleDelete = () => {
+    deleteMovie(id);
     handleClose();
   };
 
@@ -42,4 +47,4 @@ const MoviesDialog = ({ handleClose, open }) => {
   );
 };
 
-export default MoviesDialog;
+export default withHocs(MoviesDialog);
