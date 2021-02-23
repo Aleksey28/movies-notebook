@@ -21,10 +21,11 @@ const Movies = ({ classes }) => {
 
   const handleClickOpen = (data) => {
     setOpen(true);
-    setStateData({
+    setStateData((prev) => ({
+      ...prev,
       ...data,
       directorId: data && data.director ? data.director.id : '',
-    });
+    }));
   };
 
   const handleClose = () => {
@@ -41,22 +42,22 @@ const Movies = ({ classes }) => {
 
   const handleSelectChange = ({ target }) => {
     setStateData((prev) => ({
-      [target.name]: target.value,
       ...prev,
+      [target.name]: target.value,
     }));
   };
 
   const handleChange = (name) => ({ target }) => {
     setStateData((prev) => ({
-      [name]: target.value,
       ...prev,
+      [name]: target.value,
     }));
   };
 
   const handleCheckboxChange = (name) => ({ target }) => {
     setStateData((prev) => ({
-      [name]: target.checked,
       ...prev,
+      [name]: target.checked,
     }));
   };
 
@@ -78,7 +79,7 @@ const Movies = ({ classes }) => {
       />
       <div className={classes.wrapper}>
         <MoviesTable onOpen={handleClickOpen} onClose={handleClose} />
-        <Fab onClick={() => handleClickOpen()} color="primary" aria-label="Add" className={classes.fab}>
+        <Fab onClick={() => handleClickOpen(null)} color="primary" aria-label="Add" className={classes.fab}>
           <AddIcon />
         </Fab>
       </div>

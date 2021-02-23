@@ -18,9 +18,9 @@ const Directors = ({ classes }) => {
 
   const handleClickOpen = (data) => {
     setOpen(true);
-    setStateData({
-      ...data,
-    });
+    setStateData((prev) => ({
+      ...prev, ...data,
+    }));
   };
 
   const handleClose = () => {
@@ -34,8 +34,8 @@ const Directors = ({ classes }) => {
 
   const handleChange = (name) => ({ target }) => {
     setStateData((prev) => ({
-      [name]: target.value,
       ...prev,
+      [name]: target.value,
     }));
   };
 
