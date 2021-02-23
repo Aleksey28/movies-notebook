@@ -13,6 +13,8 @@ const DirectorsForm = ({
   const handleClose = () => { onClose(); };
 
   const handleSave = () => {
+    const { name, age } = selectedValue;
+    debugger;
     addDirector({ name, age: Number(age) });
     onClose();
   };
