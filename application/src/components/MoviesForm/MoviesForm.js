@@ -17,7 +17,7 @@ import withHocs from './MoviesFormHoc';
 const MoviesForm = ({
   classes, open, handleChange,
   handleSelectChange, handleCheckboxChange, onClose, selectedValue = {},
-  addMovie, data = {},
+  addMovie, updateMovie, data = {},
 }) => {
   const refInputLabel = useRef(null);
 
@@ -25,12 +25,17 @@ const MoviesForm = ({
 
   const handleSave = () => {
     const {
-      name, genre, rate, directorId, watched,
+      id, name, genre, rate, directorId, watched,
     } = selectedValue;
-
-    addMovie({
-      name, genre, rate: Number(rate), directorId, watched: Boolean(watched),
-    });
+    if (id) {
+      updateMovie({
+        id, name, genre, rate: Number(rate), directorId, watched: Boolean(watched),
+      });
+    } else {
+      addMovie({
+        name, genre, rate: Number(rate), directorId, watched: Boolean(watched),
+      });
+    }
     onClose();
   };
 
@@ -38,6 +43,7 @@ const MoviesForm = ({
     name, genre, rate, directorId, watched,
   } = selectedValue;
   const { directors = [] } = data;
+
   return (
     <Dialog onClose={handleClose} open={open} aria-labelledby="simple-dialog-title">
       <DialogTitle className={classes.title} id="simple-dialog-title">Movie information</DialogTitle>
@@ -78,7 +84,7 @@ const MoviesForm = ({
             Director
           </InputLabel>
           <Select
-            value={directorId}
+            value={directorId.id}
             onChange={handleSelectChange}
             input={<OutlinedInput name="directorId" id="outlined-director" labelWidth={57} />}
           >

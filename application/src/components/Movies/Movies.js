@@ -22,9 +22,9 @@ const Movies = ({ classes }) => {
   const handleClickOpen = (data) => {
     setOpen(true);
     setStateData((prev) => ({
+      directorId: data && data.director ? data.director.id : '',
       ...prev,
       ...data,
-      directorId: data && data.director ? data.director.id : '',
     }));
   };
 

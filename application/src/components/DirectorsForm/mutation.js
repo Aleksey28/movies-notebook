@@ -8,4 +8,12 @@ const addDirectorMutation = gql`
   }
 `;
 
-export default addDirectorMutation;
+const updateDirectorMutation = gql`
+  mutation updateDirector($id: ID, $name: String!, $age: Int!) {
+    updateDirector(id: $id, name: $name, age: $age) {
+      name
+    }
+  }
+`;
+
+export { addDirectorMutation, updateDirectorMutation };
